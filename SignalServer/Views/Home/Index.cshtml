@@ -5,6 +5,7 @@
 
 <div class="row" style="padding-top: 50px;"> 
     <div class="col-md-4">
+        @*send to all *@
         <div class="control-group">
             <div>
                 <label for="broadcast">Message</label>
@@ -12,9 +13,10 @@
             </div>
             <button id="btn-broadcast">Broadcast</button>
         </div>
-        
+
         <hr>
 
+        @*send to others *@
         <div class="control-group">
             <div>
                 <label for="broadcast">Message</label>
@@ -25,6 +27,7 @@
 
         <hr>
 
+        @*send to self *@
         <div class="control-group">
             <div>
                 <label for="self-message">Message</label>
@@ -35,6 +38,7 @@
 
         <hr>
 
+        @*send to specific client id *@
         <div class="control-group">
             <div>
                 <label for="individual-message">Message</label>
@@ -45,6 +49,35 @@
                 <input type="text" id="connection-for-message" name="connection-for-message">
             </div>
             <button id="btn-individual-message">Send to Self</button>
+        </div>
+
+        <hr>
+
+        @*send to a group of clients *@
+        <div class="control-group">
+            <div>
+                <label for="group-message">Message</label>
+                <input type="text" id="group-message" name="group-message"/>
+            </div>
+            <div>
+                <label for="group-for-message">Group Name</label>
+                <input type="text" id="group-for-message" name="group-for-message"/>
+            </div>
+            <button id="btn-group-message">Send to Group</button>
+        </div>
+        <div class="control-group">
+            <div>
+                <label for="group-to-add">Group Name</label>
+                <input type="text" id="group-to-add" name="group-to-add"/>
+            </div>
+            <button id="btn-group-add">Add User to Group</button>
+        </div>
+        <div class="control-group">
+            <div>
+                <label for="group-to-remove">Group Name</label>
+                <input type="text" id="group-to-remove" name="group-to-remove"/>
+            </div>
+            <button id="btn-group-remove">Remove User from Group</button>
         </div>
     </div>
     

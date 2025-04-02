@@ -31,6 +31,27 @@ public class LearningHub : Hub<ILearningHubClient>
         //await Clients.Clients(connectionIds).ReceiveMessage(GetMessageToSend(message));
     }
     
+    //send to a group
+    public async Task SendToGroup(string groupName, string message)
+    {
+        await Clients.Group(groupName).ReceiveMessage(GetMessageToSend(message));
+    }
+    public async Task AddUserToGroup(string groupName)
+    {
+        await Groups.AddToGroupAsync(Context.ConnectionId, groupName);
+        await Clients.Caller.ReceiveMessage($"Current user added to {groupName} group");
+        await Clients.Others.ReceiveMessage($"User {Context.ConnectionId} added to {groupName} group");
+    }
+
+    public async Task RemoveUserFromGroup(string groupName)
+    {
+        await Groups.RemoveFromGroupAsync(Context.ConnectionId, groupName);
+        await Clients.Caller.ReceiveMessage($"Current user removed from {groupName} group");
+        await Clients.Others.ReceiveMessage($"User {Context.ConnectionId} removed from {groupName} group");
+    }
+    
+    
+    /////////// other methods
     public override async Task OnConnectedAsync()
     {
         await base.OnConnectedAsync();

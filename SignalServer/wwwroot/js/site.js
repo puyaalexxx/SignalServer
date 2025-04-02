@@ -40,6 +40,20 @@ $('#btn-individual-message').on('click', e => {
     connection.invoke("SendToIndividual", connectionID, message).catch((err) => console.error(err.toString()));
 })
 
+//send to a group of clients
+$('#btn-group-message').click(function () {
+    let message = $('#group-message').val();
+    let group = $('#group-for-message').val();
+    connection.invoke("SendToGroup", group, message).catch(err => console.error(err.toString()));
+});
+$('#btn-group-add').click(function () {
+    let group = $('#group-to-add').val();
+    connection.invoke("AddUserToGroup", group).catch(err => console.error(err.toString())); });
+$('#btn-group-remove').click(function () {
+    let group = $('#group-to-remove').val();
+    connection.invoke("RemoveUserFromGroup", group).catch(err => console.error(err.toString()));
+});
+
 async function start(){
     try {
         await connection.start();
