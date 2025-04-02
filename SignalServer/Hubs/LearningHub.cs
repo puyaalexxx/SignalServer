@@ -2,11 +2,11 @@ using Microsoft.AspNetCore.SignalR;
 
 namespace SignalServer.Hubs;
 
-public class LearningHub : Hub
+public class LearningHub : Hub<ILearningHubClient>
 {
     public async Task BroadcastMessage(string message)
     {
-        await Clients.All.SendAsync("ReceiveMessage", message);
+        await Clients.All.ReceiveMessage(message);
     }
 
     public override async Task OnConnectedAsync()

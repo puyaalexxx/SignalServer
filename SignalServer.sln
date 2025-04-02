@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalServer", "SignalServer\SignalServer.csproj", "{6DC31538-A740-45BB-84F8-DD9B556A53D0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetClient", "DotnetClient\DotnetClient.csproj", "{A419B70A-22E1-41B1-84BC-FB6F4412B63A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{6DC31538-A740-45BB-84F8-DD9B556A53D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6DC31538-A740-45BB-84F8-DD9B556A53D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6DC31538-A740-45BB-84F8-DD9B556A53D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A419B70A-22E1-41B1-84BC-FB6F4412B63A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A419B70A-22E1-41B1-84BC-FB6F4412B63A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A419B70A-22E1-41B1-84BC-FB6F4412B63A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A419B70A-22E1-41B1-84BC-FB6F4412B63A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
