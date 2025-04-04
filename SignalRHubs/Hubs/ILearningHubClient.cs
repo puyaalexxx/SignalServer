@@ -1,4 +1,4 @@
-namespace SignalServer.Hubs;
+namespace SignalRHubs.Hubs;
 
 public interface ILearningHubClient
 {

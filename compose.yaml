@@ -1,0 +1,14 @@
+﻿services:
+  signalserver:
+    container_name: redis
+    image: redis:latest
+    #restart: always
+    ports:
+      - "6379:6379"
+
+volumes:
+  my-volume:
+
+networks:
+  mynetwork:
+    driver: bridge

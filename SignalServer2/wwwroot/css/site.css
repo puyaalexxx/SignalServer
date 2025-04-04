@@ -1,0 +1,44 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.body-content { padding-left: 15px; padding-right: 15px;}
+
+
+#signalr-message-panel {
+  height: calc(100vh - 200px);
+}
+
+.control-group label, .control-group input {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.control-group button {
+  margin-bottom: 20px;
+}
+
+.control-group h2, .row h2{
+  text-align: center;
+  font-size: 20px;
+}

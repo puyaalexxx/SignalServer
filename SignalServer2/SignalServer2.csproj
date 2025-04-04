@@ -1,0 +1,143 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\SignalRHubs\SignalRHubs.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="wwwroot\css\site.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.js.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\LICENSE" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation\dist\additional-methods.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation\dist\additional-methods.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation\dist\jquery.validate.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation\dist\jquery.validate.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation\LICENSE.md" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery\dist\jquery.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery\dist\jquery.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery\dist\jquery.min.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery\LICENSE.txt" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <TypeScriptCompile Include="wwwroot\lib\signalr\dist\esm\AbortController.d.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\dist\esm\AccessTokenHttpClient.d.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\dist\esm\browser-index.d.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\dist\esm\DefaultHttpClient.d.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\dist\esm\DefaultReconnectPolicy.d.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\dist\esm\Errors.d.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\dist\esm\FetchHttpClient.d.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\dist\esm\HandshakeProtocol.d.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\dist\esm\HeaderNames.d.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\dist\esm\HttpClient.d.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\dist\esm\HttpConnection.d.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\dist\esm\HubConnection.d.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\dist\esm\HubConnectionBuilder.d.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\dist\esm\IConnection.d.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\dist\esm\IHttpConnectionOptions.d.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\dist\esm\IHubProtocol.d.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\dist\esm\ILogger.d.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\dist\esm\index.d.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\dist\esm\IRetryPolicy.d.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\dist\esm\IStatefulReconnectOptions.d.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\dist\esm\ITransport.d.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\dist\esm\JsonHubProtocol.d.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\dist\esm\Loggers.d.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\dist\esm\LongPollingTransport.d.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\dist\esm\MessageBuffer.d.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\dist\esm\Polyfills.d.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\dist\esm\ServerSentEventsTransport.d.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\dist\esm\Stream.d.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\dist\esm\Subject.d.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\dist\esm\TextMessageFormat.d.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\dist\esm\Utils.d.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\dist\esm\WebSocketTransport.d.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\dist\esm\XhrHttpClient.d.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\src\AbortController.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\src\AccessTokenHttpClient.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\src\browser-index.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\src\DefaultHttpClient.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\src\DefaultReconnectPolicy.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\src\Errors.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\src\FetchHttpClient.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\src\HandshakeProtocol.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\src\HeaderNames.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\src\HttpClient.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\src\HttpConnection.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\src\HubConnection.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\src\HubConnectionBuilder.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\src\IConnection.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\src\IHttpConnectionOptions.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\src\IHubProtocol.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\src\ILogger.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\src\index.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\src\IRetryPolicy.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\src\IStatefulReconnectOptions.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\src\ITransport.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\src\JsonHubProtocol.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\src\Loggers.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\src\LongPollingTransport.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\src\MessageBuffer.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\src\Polyfills.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\src\ServerSentEventsTransport.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\src\Stream.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\src\Subject.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\src\TextMessageFormat.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\src\Utils.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\src\WebSocketTransport.ts" />
+      <TypeScriptCompile Include="wwwroot\lib\signalr\src\XhrHttpClient.ts" />
+    </ItemGroup>
+
+</Project>

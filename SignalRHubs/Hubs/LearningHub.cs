@@ -1,7 +1,8 @@
 using System.Runtime.CompilerServices;
 using Microsoft.AspNetCore.SignalR;
+using SignalRHubs.Hubs;
 
-namespace SignalServer.Hubs;
+namespace SignalRHubs.Hubs;
 
 public class LearningHub : Hub<ILearningHubClient>
 {

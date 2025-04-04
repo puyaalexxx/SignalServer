@@ -1,5 +1,7 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
+using SignalRHubs.Hubs;
 using SignalServer.Models;
 
 namespace SignalServer.Controllers;
@@ -7,14 +9,18 @@ namespace SignalServer.Controllers;
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    private readonly IHubContext<LearningHub> _hubContext;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ILogger<HomeController> logger, IHubContext<LearningHub> hubContext)
     {
         _logger = logger;
+        _hubContext = hubContext;
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
+        await _hubContext.Clients.All.SendAsync("ReceiveMessage", "Index page has been opened by a client");
+        
         return View();
     }
 

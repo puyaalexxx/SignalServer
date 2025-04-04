@@ -4,6 +4,7 @@
         <TargetFramework>net8.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     </PropertyGroup>
 
     <ItemGroup>
@@ -73,6 +74,16 @@
       <TypeScriptCompile Include="wwwroot\lib\signalr\src\Utils.ts" />
       <TypeScriptCompile Include="wwwroot\lib\signalr\src\WebSocketTransport.ts" />
       <TypeScriptCompile Include="wwwroot\lib\signalr\src\XhrHttpClient.ts" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="..\.dockerignore">
+        <Link>.dockerignore</Link>
+      </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\SignalRHubs\SignalRHubs.csproj" />
     </ItemGroup>
 
 </Project>
