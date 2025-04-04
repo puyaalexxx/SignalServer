@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using Microsoft.AspNetCore.SignalR;
 
 namespace SignalServer.Hubs;
@@ -49,6 +50,14 @@ public class LearningHub : Hub<ILearningHubClient>
         await Clients.Caller.ReceiveMessage($"Current user removed from {groupName} group");
         await Clients.Others.ReceiveMessage($"User {Context.ConnectionId} removed from {groupName} group");
     }
+
+    public async Task BroadcastStream(IAsyncEnumerable<string> stream)
+    {
+        await foreach (var item in stream)
+        {
+            await Clients.Caller.ReceiveMessage($"Server received {item}");
+        }
+    }
     
     
     /////////// other methods
@@ -65,5 +74,18 @@ public class LearningHub : Hub<ILearningHubClient>
     private string GetMessageToSend(string originalMessage)
     {
         return $"User connection id: {Context.ConnectionId}. Message: {originalMessage}";
+    }
+    
+    //server streaming
+    public async IAsyncEnumerable<string> TriggerStream(int jobsCount, [EnumeratorCancellation] CancellationToken cancellationToken)
+    {
+        for (var i = 0; i < jobsCount; i++)
+        {
+            cancellationToken.ThrowIfCancellationRequested();
+            
+            yield return $"Job {i} executed succesfully";
+            
+            await Task.Delay(1000, cancellationToken);
+        }
     }
 }

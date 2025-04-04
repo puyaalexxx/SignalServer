@@ -17,8 +17,23 @@ connection.on("ReceiveMessage", message => {
 
 //send to all
 $('#btn-broadcast').on('click', e => {
+    //let message = $('#broadcast').val();
+    //connection.invoke("BroadcastMessage", message).catch((err) => console.error(err.toString()));
+
+    //streaming
     let message = $('#broadcast').val();
-    connection.invoke("BroadcastMessage", message).catch((err) => console.error(err.toString()));
+    if (message.includes(';')) {
+        let messages = message.split(';');
+        let subject = new signalR.Subject();
+        
+        connection.send("BroadcastStream", subject).catch(err => console.error(err.toString()));
+        
+        for (let i = 0; i < messages.length; i++) { subject.next(messages[i]);
+        }
+        subject.complete();
+    } else {
+        connection.invoke("BroadcastMessage", message).catch(err => console.error(err.toString()));
+    }
 })
 
 //send to other clients
@@ -52,6 +67,16 @@ $('#btn-group-add').click(function () {
 $('#btn-group-remove').click(function () {
     let group = $('#group-to-remove').val();
     connection.invoke("RemoveUserFromGroup", group).catch(err => console.error(err.toString()));
+});
+
+//server streaming
+$('#btn-trigger-stream').click(function () {
+    let numberOfJobs = parseInt($('#number-of-jobs').val(), 10);
+    
+    connection.stream("TriggerStream", numberOfJobs)
+        .subscribe({
+            next: (message) => $('#signalr-message-panel').prepend($('<div />').text(message))
+        }); 
 });
 
 async function start(){

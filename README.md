@@ -11,4 +11,6 @@
 
 <h2>Demo:</h2>
 
+https://localhost:7175/learningHub - the URL for the Console app
+
 ![Demo 1]()

@@ -7,6 +7,7 @@
     <div class="col-md-4">
         @*send to all *@
         <div class="control-group">
+            <h2>Send To All</h2>
             <div>
                 <label for="broadcast">Message</label>
                 <input type="text" id="broadcast" name="broadcast">
@@ -18,6 +19,7 @@
 
         @*send to others *@
         <div class="control-group">
+            <h2>Send To Others</h2>
             <div>
                 <label for="broadcast">Message</label>
                 <input type="text" id="others-message" name="others-message">
@@ -29,6 +31,7 @@
 
         @*send to self *@
         <div class="control-group">
+            <h2>Send To Self</h2>
             <div>
                 <label for="self-message">Message</label>
                 <input type="text" id="self-message" name="self-message">
@@ -40,6 +43,7 @@
 
         @*send to specific client id *@
         <div class="control-group">
+            <h2>Send To Specific Client Id</h2>
             <div>
                 <label for="individual-message">Message</label>
                 <input type="text" id="individual-message" name="individual-message">
@@ -54,6 +58,7 @@
         <hr>
 
         @*send to a group of clients *@
+        <h2>Send To A Group of Clients</h2>
         <div class="control-group">
             <div>
                 <label for="group-message">Message</label>
@@ -78,6 +83,18 @@
                 <input type="text" id="group-to-remove" name="group-to-remove"/>
             </div>
             <button id="btn-group-remove">Remove User from Group</button>
+        </div>
+
+        <hr>
+
+        @*server streaming *@
+        <div class="control-group">
+            <h2>Server Message Streaming</h2>
+            <div>
+                <label for="number-of-jobs">Number of Jobs</label>
+                <input type="text" id="number-of-jobs" name="number-of-jobs"/>
+            </div>
+            <button id="btn-trigger-stream">Trigger Server Stream</button>
         </div>
     </div>
     

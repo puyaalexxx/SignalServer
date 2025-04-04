@@ -1,24 +1,26 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+using System.Threading.Channels;
 using Microsoft.AspNetCore.SignalR.Client;
 
 Console.WriteLine("Please specifiy the URL of the SignalR Hub");
 
 var url = Console.ReadLine();
 
-var hubConnetion = new HubConnectionBuilder().WithUrl(url!).Build();
+var hubConnection = new HubConnectionBuilder().WithUrl(url!).Build();
 
-hubConnetion.On<string>("ReceiveMessage", message => Console.WriteLine($"SignalR Hub Message {message}"));
+hubConnection.On<string>("ReceiveMessage", message => Console.WriteLine($"SignalR Hub Message {message}"));
 
 try
 {
-    await hubConnetion.StartAsync();
+    await hubConnection.StartAsync();
 
     var running = true;
 
     while (running)
     {
         var groupName = string.Empty;
+        var message = string.Empty;
         
         Console.WriteLine("Please specify the action:");
         Console.WriteLine("0 - broadcast to all");
@@ -28,14 +30,19 @@ try
         Console.WriteLine("4 - send to a group");
         Console.WriteLine("5 - add user to a group");
         Console.WriteLine("6 - remove user from a group");
+        Console.WriteLine("7 - trigger a server stream");
         Console.WriteLine("exit - Exit the program");
         
         var action = Console.ReadLine();
         
-        Console.WriteLine("Please specify the message:");
-        string? message = Console.ReadLine();
-        
-        if (action == "4" || action == "5" || action == "6") {
+        if (action != "5" && action != "6" && action != "7")
+        {
+            Console.WriteLine("Please specify the message:");
+            message = Console.ReadLine();
+        }
+
+        if (action == "4" || action == "5" || action == "6")
+        {
             Console.WriteLine("Please specify the group name:");
             groupName = Console.ReadLine();
         }
@@ -43,18 +50,36 @@ try
         switch (action)
         {
             case "0": 
-                await hubConnetion.SendAsync("BroadcastMessage", message);
-                break;
+               // await hubConnection.SendAsync("BroadcastMessage", message);
+               
+               //streaming feature
+               if(message?.Contains(';') ?? false)
+               {
+                   var channel = Channel.CreateBounded<string>(10);
+                   await hubConnection.SendAsync("BroadcastStream", channel.Reader);
+                   
+                   foreach (var item in message.Split(';')) {
+                       await channel.Writer.WriteAsync(item); 
+                   }
+                   
+                   channel.Writer.Complete();
+               }
+               else
+               {
+                   hubConnection.SendAsync("BroadcastMessage", message).Wait();
+               }
+               
+               break;
             case "1":
-                await hubConnetion.SendAsync("SendToOthers", message);
+                await hubConnection.SendAsync("SendToOthers", message);
                 break;
             case "2":
-                await hubConnetion.SendAsync("SendToCaller", message);
+                await hubConnection.SendAsync("SendToCaller", message);
                 break;
             case "3":
                 Console.WriteLine("Please specify the connection id:");
                 var connectionId = Console.ReadLine();
-                await hubConnetion.SendAsync("SendToIndividual", connectionId, message);
+                await hubConnection.SendAsync("SendToIndividual", connectionId, message);
                 break;
             case "4":
                 hubConnection.SendAsync("SendToGroup", groupName, message).Wait();
@@ -64,6 +89,18 @@ try
                 break;
             case "6":
                 hubConnection.SendAsync("RemoveUserFromGroup", groupName).Wait();
+                break;
+            case "7":
+                Console.WriteLine("Please specify the number of jobs to execute.");
+                
+                var numberOfJobs = int.Parse(Console.ReadLine() ?? "0");
+                var cancellationTokenSource = new CancellationTokenSource();
+                var stream = hubConnection.StreamAsync<string>("TriggerStream", numberOfJobs, cancellationTokenSource.Token);
+                
+                await foreach (var reply in stream) {
+                    Console.WriteLine(reply);
+                }
+                
                 break;
             case "exit":
                 running = false;
